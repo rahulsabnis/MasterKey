@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MasterKeyApp.iml" filepath="$PROJECT_DIR$/MasterKeyApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/masterKey/masterKey.iml" filepath="$PROJECT_DIR$/masterKey/masterKey.iml" />
+      <module fileurl="file://$PROJECT_DIR$/masterkeyapp.iml" filepath="$PROJECT_DIR$/masterkeyapp.iml" />
     </modules>
   </component>
 </project>
