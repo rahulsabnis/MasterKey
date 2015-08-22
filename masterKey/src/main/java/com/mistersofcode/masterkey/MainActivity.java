@@ -29,6 +29,9 @@ public class MainActivity extends Activity {
             @Override
             public void onSuccess(Token token) {
                 Log.i("Simplify", "Created Token: " + token.getId());
+                ParseObject parseToken = new ParseObject("Token");
+                parseToken.put("token", token.getId());
+                parseToken.saveInBackground();
                 editor.showSuccessOverlay("Payment Successful");
             }
 
@@ -43,11 +46,6 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Card card = editor.getCard();
                 AsyncTask<?, ?, ?> createTokenTask = mSimplify.createCardToken(card, listener);
-                ParseObject transaction = new ParseObject("Transaction");
-                transaction.put("Card Number", editor.getCard().getNumber());
-                transaction.put("Charity Phrase", "Unknown");
-                // TODO More Fields
-                transaction.saveInBackground();
             }
         });
 
