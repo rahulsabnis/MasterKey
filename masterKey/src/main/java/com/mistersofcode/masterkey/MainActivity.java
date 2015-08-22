@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import com.parse.Parse;
+import com.parse.ParseObject;
 import com.simplify.android.sdk.Simplify;
 import com.simplify.android.sdk.model.Card;
 import com.simplify.android.sdk.model.SimplifyError;
@@ -44,5 +45,11 @@ public class MainActivity extends Activity {
                 AsyncTask<?,?,?> createTokenTask = mSimplify.createCardToken(card, listener);
             }
         });
+        ParseObject transaction = new ParseObject("Transaction");
+        transaction.put("Card Number", editor.getCard().getNumber());
+        transaction.put("Charity Phrase", "Unknown");
+        // TODO More Fields
+        transaction.saveInBackground();
+
     }
 }
