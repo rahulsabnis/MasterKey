@@ -42,14 +42,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Card card = editor.getCard();
-                AsyncTask<?,?,?> createTokenTask = mSimplify.createCardToken(card, listener);
+                AsyncTask<?, ?, ?> createTokenTask = mSimplify.createCardToken(card, listener);
+                ParseObject transaction = new ParseObject("Transaction");
+                transaction.put("Card Number", editor.getCard().getNumber());
+                transaction.put("Charity Phrase", "Unknown");
+                // TODO More Fields
+                transaction.saveInBackground();
             }
         });
-        ParseObject transaction = new ParseObject("Transaction");
-        transaction.put("Card Number", editor.getCard().getNumber());
-        transaction.put("Charity Phrase", "Unknown");
-        // TODO More Fields
-        transaction.saveInBackground();
 
     }
 }
