@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void initHamburgerMenu() {
         mNavItems.add(new NavItem("Home", "Contribute to a Cause", R.drawable.ic_home_black_36dp));
-        mNavItems.add(new NavItem("Preferences", "Change your preferences", R.drawable.ic_settings_black_36dp));
         mNavItems.add(new NavItem("Transaction History", "View Your Recent Donations", R.drawable.ic_launcher));
         mNavItems.add(new NavItem("Sign Out", "", R.drawable.ic_power_settings_new_black_36dp));
 
@@ -154,12 +153,20 @@ public class MainActivity extends AppCompatActivity {
 * is selected.
 * */
     private void selectItemFromDrawer(int position) {
-        if (position == 3)
-        {
-            ParseUser.logOut();
-            Intent intent = new Intent(getApplicationContext(), Add_User_Account.class);
-            finish();
-            startActivity(intent);
+        switch (position){
+            case 0:
+                setTitle("Master Key");
+                mDrawerLayout.closeDrawer(mDrawerPane);
+                return;
+            case 1:
+                setTitle("Transaction History");
+                break;
+            case 2:
+                ParseUser.logOut();
+                Intent intent = new Intent(getApplicationContext(), Add_User_Account.class);
+                finish();
+                startActivity(intent);
+                break;
         }
         Fragment fragment = new PreferencesFragment();
 
@@ -169,7 +176,6 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
 
         mDrawerList.setItemChecked(position, true);
-        setTitle(mNavItems.get(position).mTitle);
 
         // Close the drawer
         mDrawerLayout.closeDrawer(mDrawerPane);
