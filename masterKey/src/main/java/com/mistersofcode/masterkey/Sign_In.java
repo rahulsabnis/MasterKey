@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import com.digits.sdk.android.*;
 import com.parse.Parse;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterCore;
 import io.fabric.sdk.android.Fabric;
@@ -40,8 +41,16 @@ public class Sign_In extends Activity {
                     authenticatedNumbers.put("phoneNumber", phoneNumber);
                     authenticatedNumbers.saveInBackground();
                 }
-                Intent actionStartSignIn = new Intent("com.mistersofcode.SignUp");
-                startActivity(actionStartSignIn);
+                ParseUser currentUser = ParseUser.getCurrentUser();
+                if (currentUser != null)
+                {
+                    Intent actionStartCard = new Intent("com.mistersofcode.LaunchMain");
+                    startActivity(actionStartCard);
+                }
+                else {
+                    Intent actionStartSignIn = new Intent("com.mistersofcode.SignUp");
+                    startActivity(actionStartSignIn);
+                }
             }
 
             @Override
