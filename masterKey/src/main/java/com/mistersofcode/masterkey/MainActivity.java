@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
         mNavItems.add(new NavItem("Home", "Contribute to a Cause", R.drawable.ic_home_black_36dp));
         mNavItems.add(new NavItem("Preferences", "Change your preferences", R.drawable.ic_settings_black_36dp));
         mNavItems.add(new NavItem("Transaction History", "View Your Recent Donations", R.drawable.ic_launcher));
-        //mNavItems.add(new NavItem("Sign Out", "", R.drawable.ic_power_settings_new_black_36dp));
-        mNavItems.add(new NavItem("Sign Out", "", R.drawable.ic_settings_black_36dp));
+        mNavItems.add(new NavItem("Sign Out", "", R.drawable.ic_power_settings_new_black_36dp));
+
         // DrawerLayout
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
 
