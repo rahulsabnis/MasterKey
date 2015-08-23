@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.parse.*;
 
 
-public class Add_User_Account extends Activity {
+public class AddUserAccount extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
