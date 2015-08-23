@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import com.parse.*;
 
 
@@ -21,7 +22,7 @@ public class Add_User_Account extends Activity {
         //Parse.initialize(this, "oeMDj84i1tC5FaWLTf3X0InyDn3ahWIK7zM6xfVj", "8kXcxnLbLBndSj2oq8Y0TUiKFXT6buQDecyMp4L4");
     }
 
-    public void signIn(View view){
+    public void signUp(View view){
         EditText userField = (EditText)findViewById(R.id.user_name);
         EditText passField = (EditText)findViewById(R.id.password);
 
@@ -37,16 +38,39 @@ public class Add_User_Account extends Activity {
             @Override
             public void done(ParseException e) {
                 if (e == null) {
+                    // Successfully created account
+                    TextView textView = (TextView)findViewById(R.id.status);
+                    textView.setText("Account Created. Click Sign In");
+                }
+                else
+                {
+                    // Tell user the sign in failed
+                    TextView textView = (TextView)findViewById(R.id.status);
+                    textView.setText("Unable create account");
+                }
+            }
+        });
+
+    }
+    public void signIn(View view)
+    {
+        EditText userField = (EditText)findViewById(R.id.user_name);
+        EditText passField = (EditText)findViewById(R.id.password);
+        ParseUser.logInInBackground(userField.getText().toString(), passField.getText().toString(), new LogInCallback() {
+            @Override
+            public void done(ParseUser parseUser, ParseException e) {
+                if (e == null)
+                {
                     Intent actionStartCard = new Intent("com.mistersofcode.LaunchMain");
                     startActivity(actionStartCard);
                 }
                 else
                 {
-                    // Tell user the sign in failed
+                    TextView textView = (TextView)findViewById(R.id.status);
+                    textView.setText("Invalid Login Credentials");
                 }
             }
         });
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

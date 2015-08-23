@@ -8,6 +8,7 @@
     <string name="drawer_open"></string>
     <string name="drawer_close"></string>
     <string name="title_activity_sign__in">Sign In</string>
+    <string name="title_activity_sign__up">Sign Up</string>
     <string name="title_activity_add__user__account">Add User Account</string>
     <string name="sign_up">Create User Name</string>
 </resources>
