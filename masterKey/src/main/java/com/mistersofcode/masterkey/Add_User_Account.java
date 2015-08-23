@@ -49,7 +49,7 @@ public class Add_User_Account extends Activity {
     }
     public void signIn(View view)
     {
-        EditText userField = (EditText)findViewById(R.id.user_name);
+        final EditText userField = (EditText)findViewById(R.id.user_name);
         EditText passField = (EditText)findViewById(R.id.password);
         ParseUser.logInInBackground(userField.getText().toString(), passField.getText().toString(), new LogInCallback() {
             @Override

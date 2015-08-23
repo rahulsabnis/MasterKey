@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private RelativeLayout layout;
+    private TextView mUserNameTextView;
 
     private ListView mDrawerList;
     private RelativeLayout mDrawerPane;
@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mSimplify = new Simplify(SIMPLIFY_PUBLIC_API_KEY);
-        layout = (RelativeLayout) findViewById(R.id.drawerRelativeLayout);
         final CardEditor editor = (CardEditor) findViewById(R.id.card_editor);
         initHamburgerMenu();
         initUI();
@@ -62,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         mNavItems.add(new NavItem("Preferences", "Change your preferences", R.drawable.ic_settings_black_36dp));
         mNavItems.add(new NavItem("Transaction History", "View Your Recent Donations", R.drawable.ic_launcher));
         //mNavItems.add(new NavItem("Sign Out", "", R.drawable.ic_power_settings_new_black_36dp));
-        mNavItems.add(new NavItem("Sign Out", "", R.drawable.ic_settings_black_36dp));
+        mNavItems.add(new NavItem("Sign Out", "", R.drawable.ic_power_settings_new_black_36dp));
         // DrawerLayout
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
 
@@ -104,6 +103,13 @@ public class MainActivity extends AppCompatActivity {
     private void initUI()
     {
         mCardEditor = (CardEditor) findViewById(R.id.card_editor);
+
+        mUserNameTextView = (TextView) findViewById(R.id.userName);
+
+        if (ParseUser.getCurrentUser() != null)
+        {
+            mUserNameTextView.setText(ParseUser.getCurrentUser().getUsername());
+        }
 
         mCardEditor.setOnChargeClickListener(new View.OnClickListener() {
             @Override
