@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Add_User_Account"
+            android:name=".AddUserAccount"
             android:label="@string/title_activity_add__user__account"
             android:noHistory="true" >
             <intent-filter>
