@@ -12,6 +12,7 @@
     <string name="title_activity_add__user__account">Add User Account</string>
     <string name="sign_up">Create User Name</string>
     <string name="title_activity_organization_table">OrganizationTable</string>
+    <string name="twitter">Twitter Digits Sign In</string>
     <string name="code">Code</string>
     <string name="blurb">Blurb</string>
 </resources>
