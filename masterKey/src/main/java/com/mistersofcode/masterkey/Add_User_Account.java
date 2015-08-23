@@ -26,11 +26,6 @@ public class Add_User_Account extends Activity {
         EditText userField = (EditText)findViewById(R.id.user_name);
         EditText passField = (EditText)findViewById(R.id.password);
 
-        ParseObject userNames = new ParseObject("UserNames");
-        //Log.d("User Name: ", userField.getText().toString() );
-        //userNames.put("user_name", userField.getText().toString());
-        userNames.saveInBackground();
-
         ParseUser user = new ParseUser();
         user.setUsername(userField.getText().toString());
         user.setPassword(passField.getText().toString());
