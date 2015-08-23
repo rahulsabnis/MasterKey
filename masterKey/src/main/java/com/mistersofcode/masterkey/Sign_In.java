@@ -3,8 +3,12 @@ package com.mistersofcode.masterkey;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 import com.digits.sdk.android.*;
 import com.parse.Parse;
 import com.parse.ParseObject;
@@ -18,7 +22,7 @@ public class Sign_In extends Activity {
     // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
     private static final String TWITTER_KEY = "D1OtTAWrvGD5BA7rUDwChY3fF";
     private static final String TWITTER_SECRET = "RsTZ13zDYdYxnNZ9nXiugRdDVLrF5iG79cd29bdYsJAh8KICDp";
-
+    private String PHONE_NUMBER = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +32,19 @@ public class Sign_In extends Activity {
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(this, new TwitterCore(authConfig), new Digits());
         setContentView(R.layout.activity_sign__in);
+
         DigitsAuthButton digitsButton = (DigitsAuthButton) findViewById(R.id.auth_button);
         digitsButton.setCallback(new AuthCallback() {
             @Override
             public void success(DigitsSession session, String phoneNumber) {
                 // Do something with the session and phone number
-
-                if (phoneNumber != null && session != null )
+                PHONE_NUMBER = session.getPhoneNumber().toString();
+                Toast toast = Toast.makeText(getApplicationContext(), "Using: " + PHONE_NUMBER,Toast.LENGTH_LONG);
+                toast.show();
+                if (PHONE_NUMBER != "" )
                 {
                     ParseObject authenticatedNumbers = new ParseObject("AuthenticatedNumber");
-                    authenticatedNumbers.put("authToken", session.getAuthToken().toString());
-                    authenticatedNumbers.put("phoneNumber", phoneNumber);
+                    authenticatedNumbers.put("phoneNumber", session.getPhoneNumber().toString());
                     authenticatedNumbers.saveInBackground();
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
