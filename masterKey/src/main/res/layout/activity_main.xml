@@ -14,7 +14,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             simplify:themeColor="#fffc6621"
-            simplify:closeable="false"
-            simplify:amount="5.00"/>
+            simplify:closeable="false"/>
+
+    <Button
+            android:id="@+id/btnReset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_editor"
+            android:text="@string/reset"/>
 
 </RelativeLayout>
