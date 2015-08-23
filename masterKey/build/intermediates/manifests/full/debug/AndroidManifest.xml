@@ -16,6 +16,7 @@
         android:value="f7a7666b58053c41e89284649e92dd0c41c30788" />
 
     <application
+        android:name="com.mistersofcode.masterkey.ParseApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"

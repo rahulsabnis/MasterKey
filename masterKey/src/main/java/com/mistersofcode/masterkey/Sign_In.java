@@ -25,10 +25,6 @@ public class Sign_In extends Activity {
     private static final String TWITTER_SECRET = "RsTZ13zDYdYxnNZ9nXiugRdDVLrF5iG79cd29bdYsJAh8KICDp";
     private String PHONE_NUMBER = "";
 
-    private String APPLICATION_ID = "oeMDj84i1tC5FaWLTf3X0InyDn3ahWIK7zM6xfVj";
-    private String PARSE_CLIENT_KEY = "8kXcxnLbLBndSj2oq8Y0TUiKFXT6buQDecyMp4L4";
-
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -37,10 +33,6 @@ public class Sign_In extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, APPLICATION_ID, PARSE_CLIENT_KEY);
-        ParseInstallation.getCurrentInstallation().saveInBackground();
 
         if (ParseUser.getCurrentUser() != null)
         {
