@@ -26,7 +26,6 @@ public class OrganizationTable extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_organization_table);
-        TableLayout tableLayout = (TableLayout)findViewById(R.id.table);
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Organization");
 
@@ -53,7 +52,6 @@ public class OrganizationTable extends Activity {
     }
     private void addRow(String code, String blurb)
     {
-        TableLayout tableLayout = (TableLayout)findViewById(R.id.table);
 
         TextView codeView = new TextView(getApplicationContext());
         codeView.setPadding(3, 3, 3, 3);
@@ -67,8 +65,6 @@ public class OrganizationTable extends Activity {
         TableRow row = new TableRow(getApplicationContext());
         row.addView(codeView);
         row.addView(blurbView);
-
-        tableLayout.addView(row);
 
     }
 
