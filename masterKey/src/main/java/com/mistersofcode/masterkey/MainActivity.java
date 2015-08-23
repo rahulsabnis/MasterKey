@@ -3,6 +3,7 @@ package com.mistersofcode.masterkey;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         mNavItems.add(new NavItem("Home", "Contribute to a Cause", R.drawable.ic_home_black_36dp));
         mNavItems.add(new NavItem("Preferences", "Change your preferences", R.drawable.ic_settings_black_36dp));
         mNavItems.add(new NavItem("Transaction History", "View Your Recent Donations", R.drawable.ic_launcher));
+        mNavItems.add(new NavItem("Sign Out", "", R.drawable.ic_power_settings_new_black_36dp));
 
         // DrawerLayout
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
@@ -147,6 +149,12 @@ public class MainActivity extends AppCompatActivity {
 * is selected.
 * */
     private void selectItemFromDrawer(int position) {
+        if (position == 3)
+        {
+            Intent intent = new Intent(getApplicationContext(), Add_User_Account.class);
+            finish();
+            startActivity(intent);
+        }
         Fragment fragment = new PreferencesFragment();
 
         FragmentManager fragmentManager = getFragmentManager();
