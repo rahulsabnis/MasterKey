@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mSimplify = new Simplify(SIMPLIFY_PUBLIC_API_KEY);
         layout = (RelativeLayout) findViewById(R.id.drawerRelativeLayout);
-        Parse.enableLocalDatastore(this);
+        //Parse.enableLocalDatastore(this);
         final CardEditor editor = (CardEditor) findViewById(R.id.card_editor);
-        Parse.initialize(this, "oeMDj84i1tC5FaWLTf3X0InyDn3ahWIK7zM6xfVj", "8kXcxnLbLBndSj2oq8Y0TUiKFXT6buQDecyMp4L4");
+        //Parse.initialize(this, "oeMDj84i1tC5FaWLTf3X0InyDn3ahWIK7zM6xfVj", "8kXcxnLbLBndSj2oq8Y0TUiKFXT6buQDecyMp4L4");
         initHamburgerMenu();
         initUI();
     }
