@@ -15,6 +15,7 @@ import com.parse.Parse;
 import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
+import com.simplify.android.sdk.model.Card;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterCore;
 import io.fabric.sdk.android.Fabric;
@@ -36,7 +37,7 @@ public class Sign_In extends Activity {
         super.onCreate(savedInstanceState);
         if (ParseUser.getCurrentUser() != null)
         {
-            Intent actionStartCard = new Intent("com.mistersofcode.LaunchMain");
+            Intent actionStartCard = new Intent(getApplicationContext(), CardListActivity.class);
             startActivity(actionStartCard);
         }
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
@@ -60,7 +61,7 @@ public class Sign_In extends Activity {
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 if (currentUser != null)
                 {
-                    Intent actionStartCard = new Intent("com.mistersofcode.LaunchMain");
+                    Intent actionStartCard = new Intent(getApplicationContext(), CardListActivity.class);
                     startActivity(actionStartCard);
                 }
                 else {

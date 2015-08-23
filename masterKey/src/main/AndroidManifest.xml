@@ -51,6 +51,10 @@
             android:name=".OrganizationTable"
             android:label="@string/title_activity_organization_table" >
         </activity>
+        <activity
+                android:name=".CardListActivity"
+                android:label="@string/title_activity_card" >
+        </activity>
     </application>
 
 </manifest>

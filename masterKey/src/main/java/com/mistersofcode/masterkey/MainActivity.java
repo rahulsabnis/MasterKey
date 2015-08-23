@@ -50,14 +50,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mSimplify = new Simplify(SIMPLIFY_PUBLIC_API_KEY);
-        final CardEditor editor = (CardEditor) findViewById(R.id.card_editor);
         initHamburgerMenu();
         initUI();
     }
 
     private void initHamburgerMenu() {
         mNavItems.add(new NavItem("Home", "Contribute to a Cause", R.drawable.ic_home_black_36dp));
-        mNavItems.add(new NavItem("Organizations", "View Nonprofits", R.drawable.ic_launcher));
         mNavItems.add(new NavItem("Sign Out", "", R.drawable.ic_power_settings_new_black_36dp));
 
         // DrawerLayout
@@ -158,12 +156,6 @@ public class MainActivity extends AppCompatActivity {
                 mDrawerLayout.closeDrawer(mDrawerPane);
                 return;
             case 1:
-                setTitle("Organizations");
-                Intent intent1 = new Intent(getApplicationContext(), OrganizationTable.class);
-                finish();
-                startActivity(intent1);
-                break;
-            case 2:
                 ParseUser.logOut();
                 Intent intent2 = new Intent(getApplicationContext(), AddUserAccount.class);
                 finish();
