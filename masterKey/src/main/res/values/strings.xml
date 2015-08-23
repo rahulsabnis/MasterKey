@@ -14,4 +14,5 @@
     <string name="title_activity_organization_table">OrganizationTable</string>
     <string name="code">Code</string>
     <string name="blurb">Blurb</string>
+    <string name="title_activity_card">Offers</string>
 </resources>
