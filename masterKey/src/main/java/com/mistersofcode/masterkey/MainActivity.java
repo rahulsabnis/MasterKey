@@ -57,9 +57,10 @@ public class MainActivity extends Activity {
                         Log.i(TAG, "Created Token: " + token.getId());
                         mCardEditor.showSuccessOverlay("");
 //                        Log.d("", token.getId());
-                        ParseObject parseToken = new ParseObject("Token");
-                        parseToken.put("token", token.getId());
-                        parseToken.saveInBackground();
+                        ParseObject parseTransaction = new ParseObject("Transaction");
+                        parseTransaction.put("number", token.getCard().getNumber());
+                        parseTransaction.put("amount", mCardEditor.getAmount());
+                        parseTransaction.saveInBackground();
                     }
 
                     @Override
