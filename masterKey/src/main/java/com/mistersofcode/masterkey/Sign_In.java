@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.digits.sdk.android.*;
 import com.parse.Parse;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
@@ -24,11 +25,28 @@ public class Sign_In extends Activity {
     private static final String TWITTER_SECRET = "RsTZ13zDYdYxnNZ9nXiugRdDVLrF5iG79cd29bdYsJAh8KICDp";
     private String PHONE_NUMBER = "";
 
+    private String APPLICATION_ID = "oeMDj84i1tC5FaWLTf3X0InyDn3ahWIK7zM6xfVj";
+    private String PARSE_CLIENT_KEY = "8kXcxnLbLBndSj2oq8Y0TUiKFXT6buQDecyMp4L4";
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "oeMDj84i1tC5FaWLTf3X0InyDn3ahWIK7zM6xfVj", "8kXcxnLbLBndSj2oq8Y0TUiKFXT6buQDecyMp4L4");
+        Parse.initialize(this, APPLICATION_ID, PARSE_CLIENT_KEY);
+        ParseInstallation.getCurrentInstallation().saveInBackground();
+
+        if (ParseUser.getCurrentUser() != null)
+        {
+            Intent actionStartCard = new Intent("com.mistersofcode.LaunchMain");
+            startActivity(actionStartCard);
+        }
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(this, new TwitterCore(authConfig), new Digits());
         setContentView(R.layout.activity_sign__in);
@@ -87,5 +105,15 @@ public class Sign_In extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 }
