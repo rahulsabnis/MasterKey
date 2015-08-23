@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mistersofcode.masterkey" >
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="f7a7666b58053c41e89284649e92dd0c41c30788" />
+        android:name="io.fabric.ApiKey"
+        android:value="f7a7666b58053c41e89284649e92dd0c41c30788" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -21,9 +24,9 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".Sign_In"
-                android:label="@string/title_activity_sign__in"
-                android:noHistory="true">
+            android:name=".Sign_In"
+            android:label="@string/title_activity_sign__in"
+            android:noHistory="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,14 +34,18 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".Add_User_Account"
-                android:label="@string/title_activity_add__user__account"
-                android:noHistory="true">
+            android:name=".Add_User_Account"
+            android:label="@string/title_activity_add__user__account"
+            android:noHistory="true" >
             <intent-filter>
                 <action android:name="com.mistersofcode.SignUp" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".OrganizationTable"
+            android:label="@string/title_activity_organization_table" >
         </activity>
     </application>
 
