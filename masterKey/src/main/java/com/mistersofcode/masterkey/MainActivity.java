@@ -160,12 +160,15 @@ public class MainActivity extends AppCompatActivity {
                 return;
             case 1:
                 setTitle("Transaction History");
+                Intent intent1 = new Intent(getApplicationContext(), OrganizationTable.class);
+                finish();
+                startActivity(intent1);
                 break;
             case 2:
                 ParseUser.logOut();
-                Intent intent = new Intent(getApplicationContext(), Add_User_Account.class);
+                Intent intent2 = new Intent(getApplicationContext(), Add_User_Account.class);
                 finish();
-                startActivity(intent);
+                startActivity(intent2);
                 break;
         }
         Fragment fragment = new PreferencesFragment();
